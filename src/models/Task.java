@@ -18,15 +18,13 @@ import javax.persistence.Table;
             query = "SELECT m FROM Task AS m ORDER BY m.id DESC"
             )
 })
-@Table(name = "tasklist")
+@Table(name = "tasks")
 public class Task {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "title", length = 255, nullable = false)
-    private String title;
 
     @Column(name = "content", length = 255, nullable = false)
     private String content;
@@ -45,13 +43,7 @@ public class Task {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getContent() {
         return content;
