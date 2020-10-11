@@ -37,21 +37,22 @@ public class CreateServlet extends HttpServlet {
 
 			Task t = new Task();
 
-			String content = request.getParameter("content");
-			t.setContent(content);
 
 
-			Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-			t.setCreated_at(currentTime);
-			t.setUpdated_at(currentTime);
+            String content = request.getParameter("content");
+            t.setContent(content);
 
-			em.getTransaction().begin();
-			em.persist(t);
-			em.getTransaction().commit();
-			em.close();
+            Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+            t.setCreated_at(currentTime);
+            t.setUpdated_at(currentTime);
 
-			response.sendRedirect(request.getContextPath() + "/index");
-		}
+            em.getTransaction().begin();
+            em.persist(t);
+            em.getTransaction().commit();
+            em.close();
+
+            response.sendRedirect(request.getContextPath() + "/index");
+        }
 	}
 
 }
